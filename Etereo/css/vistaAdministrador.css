@@ -1,0 +1,29 @@
+.cuerpo{
+    padding: 30px 100px 0px;
+}
+
+#cuerpo{
+    display: flex;
+    flex-direction: column;
+}
+
+.tablaUsuarios{
+    border-collapse: collapse;
+    border: burlywood 1px solid;
+}
+
+.titulos{
+    background-color: burlywood;
+}
+
+.datos{
+    text-align: center;
+}
+
+#imagenes{
+    width: 20%;
+}
+
+.imagen{
+    width: 10%;
+}

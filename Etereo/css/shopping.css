@@ -1,0 +1,96 @@
+body{
+    margin:unset;
+    font-family: sans-serif;
+}
+
+.texto{
+    color: white;
+}
+
+.container{
+    padding: .375rem .75rem;
+}
+
+.aniadir{
+    color: black;
+    background-color: papayawhip;
+    border: 1px solid #343a40;
+    padding: .375rem .75rem;
+    font-size: 15px;
+    border-radius: .25rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.tabla{
+    display: flex;
+}
+
+.titulo{
+    background-color: sandybrown;
+    border-color: sienna;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 2%;
+}
+
+h1{
+    padding-left: 20px;
+}
+
+.imagen{
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    vertical-align: middle;
+    height: 40%;
+}
+
+.datos{
+    flex: 1 1 auto;
+}
+
+.columna{
+    position: relative;
+    display: flex;
+    flex: 25%;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.308);
+    border-radius: .25rem;
+    margin: 30px;
+    margin-top: 5px;
+    height: 350px;
+    width: 25%;
+    padding: 1%;
+}
+
+.merch{
+    margin-left: 50px;
+    margin-right: 190px;
+}
+
+.fotog{
+    margin-right: 50px;
+    margin-left: 190px;
+}
+
+.fila{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 30px;
+    text-align: center;
+    margin-right: 70px;
+    height: 100%;
+    justify-content: center;
+    border-spacing: 10px;
+}
+
+.contenido{
+    background-color: azure;
+}

@@ -1,0 +1,11 @@
+.body{
+    margin: unset;
+    width: 100%;
+}
+.salta{
+    margin-top:150px;
+}
+.mensage-error{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}

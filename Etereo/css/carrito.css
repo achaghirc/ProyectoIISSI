@@ -1,0 +1,114 @@
+body{
+    font-family: sans-serif;
+    font-size: 14px;
+    margin:unset;
+}
+
+.boton{
+    padding: 6px 12px;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-position: center;
+    color: black;
+}
+
+h1{
+    padding-left: 20px;
+}
+
+.titulo{
+    background-color: sandybrown;
+    border-color: sienna;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.tabla{
+    width: 80%;
+}
+
+.eliminar{
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    vertical-align: sub;
+}
+
+.cantidad{
+    border-radius: .25rem;
+    border: 1px solid #ddd;
+    width: 30%;
+    text-align: center;
+}
+.continuar{
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.checkout{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    position: absolute;
+    right: 70px;
+    margin-right: 50px;
+}
+
+.total{
+    position: absolute;
+    right: 70px;
+    margin-right: 50px
+}
+
+table {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    padding: 8px;
+    line-height: 2;
+}
+  
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    width: 20%;
+}
+
+td{
+    text-align: center;
+}
+
+th{
+    font-size: 20px;
+    text-align: center;
+}
+
+.container {
+    margin: 50px;
+}
+
+.contenido{
+    display: flex;
+    margin: 70px;
+}
+
+.botones{
+    display: flex;
+    margin: 70px;
+    margin-bottom: 0px;
+}
+
+.cliente{
+    position: absolute;
+    right: 70px;
+    margin-right: 50px;
+}

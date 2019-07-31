@@ -30,8 +30,7 @@ function consultarUsuarios($conexion){
         $stmt -> execute();
         return $stmt; 
     }catch(PDOException $e){
-        $_SESSION['excepcion'] = $e->getMessage();
-        Header("Location: error.php");
+        return false;
     }
 }
     /*ESTA FUNCION NOS PERMITE CONSULTAR UN USUARIO */

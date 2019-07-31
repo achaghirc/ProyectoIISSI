@@ -7,7 +7,7 @@ require_once("gestionBD.php");
 require_once("gestionarProductos.php");
 $conexion=crearConexionBD();
 $filas = consultarTodosProductos($conexion);
-cerrarConexionBD($conexion);
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -19,7 +19,26 @@ cerrarConexionBD($conexion);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-<?php include_once("cabecera.php"); ?>
+<?php 
+
+        include_once("gestionUsuario.php");
+        include_once("gestionBD.php");
+        session_start();
+        $email = $_SESSION['login'];
+        $pass = $_SESSION['pass'];
+        $esAdmin = consultarSiAdministrador($conexion,$email,$pass);
+        $custrow= $esAdmin -> Fetch(PDO::FETCH_ASSOC);
+        cerrarConexionBD($conexion);
+
+            if($custrow['ADMINISTRADOR'] == "YES"){
+                include_once("cabeceraAdmin.php");
+            }else if($custrow['ADMINISTRADOR'] == "NO"){
+                include_once("cabecera.php");
+            }else{
+                include_once("cabecera.php");
+            }
+
+?>
 <div class="container">
     <div class="titulo">
         <h1>Productos</h1>

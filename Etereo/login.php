@@ -23,10 +23,12 @@
             }else if($custrow["ADMINISTRADOR"] == 'YES' ){
                     Header("Location:adminPage.php?var2=".$correoElectronico);
                     $_SESSION['login'] = $correoElectronico;
+                    $_SESSION['pass'] = $contraseña;
 
             }else if($custrow["ADMINISTRADOR"] == 'NO'){
                     Header("Location:coverPage.php?var2=".$correoElectronico); 
                     $_SESSION['login'] = $correoElectronico;  
+                    $_SESSION['pass'] = $contraseña;
                 }
              
             }

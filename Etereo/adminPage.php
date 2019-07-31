@@ -10,10 +10,22 @@
 </head>
 <body style="margin: unset;">
         <?php
-            //  session_start();
+            include_once("gestionUsuario.php");
+            include_once("gestionBD.php");
+            session_start();
+            $conexion = crearConexionBD();
+            $email = $_SESSION['login'];
+            $pass = $_SESSION['pass'];
+            $esAdmin = consultarSiAdministrador($conexion,$email,$pass);
+            $custrow= $esAdmin -> Fetch(PDO::FETCH_ASSOC);
+            cerrarConexionBD($conexion);
+
+            if($custrow['ADMINISTRADOR'] == "YES"){
+                include_once("cabeceraAdmin.php");
+            }
         ?>
         <?php
-            include_once("cabecera.php");
+           // include_once("cabecera.php");
             if(isset($_SESSION['login'])){
                 $admin = $_SESSION['login'];
             }
@@ -87,11 +99,11 @@
 							</button>
                     <?php } else if(isset($usuario) and ($usuario["CIF"] == $fila["CIF"])){ ?>
                         <button id="grabar" name="grabar" class="nav-link" type="submit">
-										<p>Guardar modificación</p>
+										<p>Guardar</p>
                                     </button>    
                      
 							<button id="borrar" name="borrar" class="nav-link" type="submit">
-										<p>Borrar Alumno</p>
+										<p>Borrar Cliente</p>
                             </button>
                     <?php } ?>
                                        

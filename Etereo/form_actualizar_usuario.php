@@ -65,7 +65,7 @@
                     <input id="direccion" name="DIRECCION" class="input-css" type="text" value="<?php echo $usuario['DIRECCION'];?>"  required/>
                     
                     <label for="correoElec" class="label-css">Correo Electronico: </label>
-                    <input id="correoElectronico" name="CORREOELECTRONICO"class="input-css" type="text" size="40" value="<?php echo $custrow['CORREOELECTRONICO'];?>" required>
+                    <input id="correoElectronico" name="CORREOELECTRONICO"class="input-css" type="text" size="40" value="<?php echo $usuario['CORREOELECTRONICO'];?>" required/>
                     
                     <label for="contraseña" class="label-css">Contraseña:</label>
                     <input id="contraseña" name="CONTRASEÑA" class="input-css" type="password" minlength="8" placeholder="<?php echo $usuario['CONTRASEÑA'];?>" required/>

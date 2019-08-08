@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/php; charset=UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Etéreo</title>
-    <link rel="icon" type="image/vnd.microsoft.icon" href="assets/favicon.ico">
-            <!-- Importo hojas de estilo -->
-    <link rel="stylesheet" type="text/css" href="css/vistaAdministrador.css"  media="only screen" />
+    <title>Página de administrador</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/vistaAdministrador.css" media="screen"/>
 </head>
 <body style="margin: unset;">
         <?php
@@ -41,6 +39,62 @@
            
                 cerrarConexionBD($conexion);
         ?>
+    <?php //  session_start(); ?>
+    <?php include_once("cabecera.php");
+    if(isset($_SESSION['login'])){
+        $admin = $_SESSION['login'];
+    }
+    if(isset($_SESSION['usuario'])){
+        $usuario = $_SESSION['usuario'];
+        unset($_SESSION['usuario']);        
+    }
+    require_once("gestionBD.php");
+    require_once("gestionUsuario.php");
+    require_once("paginacion_consulta.php");
+    if (isset($_SESSION["paginacion"]))
+        $paginacion = $_SESSION["paginacion"];
+	$pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
+	$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 3);
+    if ($pagina_seleccionada < 1)
+        $pagina_seleccionada = 1;
+    if ($pag_tam < 1)
+        $pag_tam = 3;
+	unset($_SESSION["paginacion"]);
+    $conexion=crearConexionBD();
+    $query = 'SELECT * FROM CLIENTES';
+    $total_registros = total_consulta($conexion, $query);
+    $total_paginas = (int)($total_registros / $pag_tam);
+    if ($total_registros % $pag_tam > 0)
+        $total_paginas++;
+    if ($pagina_seleccionada > $total_paginas)
+        $pagina_seleccionada = $total_paginas;
+	$paginacion["PAG_NUM"] = $pagina_seleccionada;
+    $paginacion["PAG_TAM"] = $pag_tam;
+	$_SESSION["paginacion"] = $paginacion;
+    $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
+    cerrarConexionBD($conexion);
+    ?>
+    <nav>	
+        <div class="enlaces">
+            <?php for( $pagina = 1; $pagina <= $total_paginas; $pagina++ ) { ?>
+                <div class="numero">
+		    	    <?php if ( $pagina == $pagina_seleccionada) { 	?>
+			       	    <span class="current"><?php echo $pagina; ?></span>
+    		        <?php }	else { ?>
+        				<a href="adminPage.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina ?></a>
+	                <?php } ?>
+                </div>
+            <?php } ?>
+	        <form method="get" action="adminPage.php" class="mostrando">
+        		<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
+        		Mostrando
+		        <input id="PAG_TAM" class="nelementos" name="PAG_TAM" type="number" min="1" max="<?php echo $total_registros ?>"
+            		value="<?php echo $pag_tam?>" autofocus="autofocus" />
+        		clientes de <?php echo $total_registros?>
+    	    	<input type="submit" value="Cambiar" class="botones">
+            </form>
+        </div>
+    </nav>
     <section class="cuerpo">
         <div id="cuerpo">
             <table class="tablaUsuarios">
@@ -54,14 +108,9 @@
                     <th id="telefono">TELEFONO</th>
                     <th></th>
                 </tr>
-                
-                <?php
-                
-                foreach($filas as $fila) {
-                  
-                     ?>
-                <form method='post' action="controlador_usuario.php">
-                    <div>
+                <?php foreach($filas as $fila) { ?>
+                <article>
+                    <form method="post" action="controlador_usuario.php">
                         <div>
                     <input id= "OID_CLI" name ="OID_CLI" type="hidden" value="<?php echo $fila["OID_CLI"]; ?>"/>
                     <input id= "NOMBRE" name ="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
@@ -111,11 +160,10 @@
                     </td>
                 </tr>
                     </form>
-                <?php 
-                    } ?>
+                </article>
+                <?php } ?>
             </table>
         </div>
     </section>
-   
 </body>
 </html>

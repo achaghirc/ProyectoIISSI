@@ -7,7 +7,7 @@
 		if (isset($_SESSION["usuario"])) {
 
 			$usuario = $_SESSION["usuario"];
-    //	unset($_SESSION["usuario"]);
+    	unset($_SESSION["usuario"]);
 		
 			
 			

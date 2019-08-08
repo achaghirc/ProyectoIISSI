@@ -35,10 +35,10 @@ function consultarUsuarios($conexion){
 }
     /*ESTA FUNCION NOS PERMITE CONSULTAR UN USUARIO */
 function consultaUsuario($conexion,$correoElectronico,$contraseña){
-        $consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE CORREOELECTRONICO=:CORREOELECTRONICO AND CONTRASEÑA=:contraseña";
+        $consulta = "SELECT COUNT(*) AS TOTAL FROM CLIENTES WHERE CORREOELECTRONICO=:correoElectronico AND CONTRASEÑA=:contraseña";
         //Utiliza el metodo prepare del objeto PDO
         $stmt = $conexion -> prepare($consulta);
-        $stmt -> bindParam(':CORREOELECTRONICO',$correoElectronico);
+        $stmt -> bindParam(':correoElectronico',$correoElectronico);
         $stmt -> bindParam(':contraseña',$contraseña);
         $stmt -> execute();
         //Retornar el resultado del metodo fetchcolumn
@@ -71,8 +71,8 @@ function modificarUsuario($conexion,$cif,$nombre,$direccion,$correoElectronico,$
 }
 function eliminarCliente($conexion,$correoElectronico){
     try{
-        $stmt = $conexion->prepare('CALL BORRAR_CLIENTE(:CORREOELECTRONICO)');
-        $stmt -> bindParam(':CORREOELECTRONICO',$correoElectronico);
+        $stmt = $conexion->prepare('CALL BORRAR_CLIENTE(:correoElectronico)');
+        $stmt -> bindParam(':correoElectronico',$correoElectronico);
         $stmt -> execute();
         return "";
     }catch(PDOException $e){

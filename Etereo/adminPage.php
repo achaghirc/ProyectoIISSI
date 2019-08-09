@@ -21,6 +21,7 @@
             if($custrow['ADMINISTRADOR'] == "YES"){
                 include_once("cabeceraAdmin.php");
             }
+        
         ?>
         <?php
            // include_once("cabecera.php");
@@ -40,7 +41,7 @@
                 cerrarConexionBD($conexion);
         ?>
     <?php //  session_start(); ?>
-    <?php include_once("cabecera.php");
+    <?php 
     if(isset($_SESSION['login'])){
         $admin = $_SESSION['login'];
     }

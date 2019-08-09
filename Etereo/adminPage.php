@@ -10,7 +10,7 @@
 </head>
 <body style="margin: unset;">
         <?php
-            //  session_start();
+        //session_start();
         ?>
         <?php
             include_once("cabecera.php");

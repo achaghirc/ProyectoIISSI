@@ -33,7 +33,7 @@ $filas = consultarTodosProductos($conexion);
             if($custrow['ADMINISTRADOR'] == "YES"){
                 include_once("cabeceraAdmin.php");
             }else if($custrow['ADMINISTRADOR'] == "NO"){
-                include_once("cabecera.php");
+                include_once("cabecera2.php");
             }else{
                 include_once("cabecera.php");
             }
@@ -58,9 +58,15 @@ $filas = consultarTodosProductos($conexion);
                             <h2><?php echo $fila["NOMBRE"]; ?></h2>
                             <h3><?php echo $fila["DESCRIPCION"]; ?></h3>
                             <p><?php echo $fila["PRECIO"].' €'; ?></p>
+                            <?php if($custrow['ADMINISTRADOR'] == "YES"){ ?>
+                            <button class="aniadir" role="link" onclick="window.location='accion_carrito.php?action=aniadirCarrito&id=<?php echo $fila['IDENTIFICADOR']?>'">
+                            Modificar Producto
+                            <?php }else { ?>
+                            </button>
                             <button class="aniadir" role="link" onclick="window.location='accion_carrito.php?action=aniadirCarrito&id=<?php echo $fila['IDENTIFICADOR']?>'">
                             Añadir al carrito
                             </button>
+                            <?php } ?>
                         </div>
                     </div>
             <?php }

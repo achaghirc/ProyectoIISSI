@@ -167,7 +167,7 @@ $cliente = $query->fetch(PDO::FETCH_ASSOC);
     </div>
     <div class="botones">
         <div class="boton continuar">
-            <a href="shopping-page.php" class="boton">Continuar comprando</a>
+            <a href="shopping-page.php?var2=admin@admin.com" class="boton">Continuar comprando</a>
         </div>
         <div class="boton checkout">
             <a href="accion_carrito.php?action=realizarPedido" class="boton">Realizar pedido</a>

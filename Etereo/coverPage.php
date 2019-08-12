@@ -12,10 +12,10 @@
     <?php
             include_once("gestionUsuario.php");
             include_once("gestionBD.php");
-            session_start();
-            $conexion = crearConexionBD();
-            $email = $_SESSION['login'];
-            $pass = $_SESSION['pass'];
+        //    session_start();
+       //     $conexion = crearConexionBD();
+       //     $email = $_SESSION['login'];
+       //     $pass = $_SESSION['pass'];
             include_once("cabecera.php");
         ?>
       <!--Foto principal-->

@@ -15,7 +15,7 @@
                 </div>
                 <div class="left-items">
                   <div class="navmenu_btn" data-ix="show-sub-menu">
-                    <a class="navmenu_link" href="shopping-page.php" style="color: black; text-decoration:none;">Shop</a>
+                    <a class="navmenu_link" href="shopping-page.php?var2=admin@admin.com" style="color: black; text-decoration:none;">Shop</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
                     <a class="navmenu_link" href="adminPage.php?var2=admin@admin.com" style="color: black; text-decoration:none;">Admin Page</a>

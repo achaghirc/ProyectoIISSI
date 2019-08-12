@@ -40,7 +40,7 @@
                 cerrarConexionBD($conexion);
         ?>
     <?php //  session_start(); ?>
-    <?php include_once("cabecera.php");
+    <?php 
     if(isset($_SESSION['login'])){
         $admin = $_SESSION['login'];
     }
@@ -81,7 +81,7 @@
 		    	    <?php if ( $pagina == $pagina_seleccionada) { 	?>
 			       	    <span class="current"><?php echo $pagina; ?></span>
     		        <?php }	else { ?>
-        				<a href="adminPage.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina ?></a>
+        				<a href="adminPage.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>&var2=admin@admin.com"><?php echo $pagina ?></a>
 	                <?php } ?>
                 </div>
             <?php } ?>

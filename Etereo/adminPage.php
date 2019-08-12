@@ -21,6 +21,7 @@
             if($custrow['ADMINISTRADOR'] == "YES"){
                 include_once("cabeceraAdmin.php");
             }
+        
         ?>
         <?php
            // include_once("cabecera.php");

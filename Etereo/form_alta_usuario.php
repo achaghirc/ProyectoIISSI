@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/form_alta_usuario.css"/>
     <link rel="stylesheet" type="text/css" href="css/excepciones.css"/>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-    <script src="js/validacion.js" type="text/javascript"></script>
+    <script src="js/validacionAltaUsuario.js" type="text/javascript"></script>
 </head>
 <body>
     <header>

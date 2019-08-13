@@ -70,17 +70,6 @@
 
         });
     </script>
-    
-    <?php 
-        // Mostrar los erroes de validación (Si los hay)
-        if(isset($errores) && count($errores) > 0){
-            echo "<div id=\"div_errores\" class=\"error\">";
-                echo "<h4>Errores en el formulario:</h4>";
-                foreach($errores as $error) echo $error;
-                echo "</div>";
-        }
-		
-    ?>
         <div id="formularios">
             <div id="formAlta">
                 <form id="altaUsuario" method="get" action="validacion_alta_usuario.php"  class="formulario" >

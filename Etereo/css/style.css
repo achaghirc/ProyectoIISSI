@@ -225,8 +225,14 @@ flex-direction: row;
 
 /* ACCION ALTA USUARIO */
 .mensaje_bienvenida{
-padding-left: 5%;
-padding-top: 3%;
+  margin: 5% 2%;
+  padding: 2%;
+  border-color: black;
+  border-collapse: collapse;
+  border-style: solid;
+  display: flex;
+  font-family: sans-serif;
+  flex-direction: column;
 }
 
 #mensajeBienvenida{

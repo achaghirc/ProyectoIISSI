@@ -40,7 +40,7 @@
                     <div class="iconUser"><img src="images/iconUser2.png" alt='Imagen Usuario' id="iconUser"/></div>
                     <div class="usuario"><a href="logout.php">
                     <b class="userName"> <?php echo $email?></b>
-                    <a href="DarBaja.php" class=" boton eliminar" onclick="return confirm('¿Estás seguro de eliminar tu usuario de la pagina?')">Darse de baja<img src="./images/borraUsuario.png" style="width:8%;    vertical-align: text-bottom;"/></a>
+                    <a id="enlaceDarBaja" href="DarBaja.php" class=" boton eliminar" onclick="return confirm('¿Estás seguro de eliminar tu usuario de la pagina?')">Darse de baja<img src="./images/borraUsuario.png" style="width:8%;    vertical-align: text-bottom;"/></a>
                     </a></div>
                   </div>
                 </div>

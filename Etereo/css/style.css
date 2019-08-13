@@ -83,21 +83,24 @@ color: black;
 }
 
 #iconUser{
-width: 100%;
-height: 100%;
+width: 50%;
 }
 
 .iconUser{
-display: flex;
-width: 40px;
-justify-content: flex-end;
-margin-right: 4%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 4%;
 }
 
 .logueado{
 display: flex;
 flex-direction: row;
 }
+
+#enlaceDarBaja{
+  color: black;
+}
+
 /* PAGINA PORTADA */
 /* Foto portada */
 

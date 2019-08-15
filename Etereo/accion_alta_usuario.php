@@ -29,7 +29,6 @@
 	?>
 
 	<main>
-		<!-- CONSULTAR EL TEMA DE TEORÍA SOBRE ACCESO A DATOS -->
 		<?php 	// AQUÍ SE INVOCA A LA FUNCIÓN DE ALTA DE USUARIO
 				// EN EL CONTEXTO DE UNA SENTENCIA IF
 			if (alta_Usuario($conexion, $formulario)) {
@@ -40,12 +39,11 @@
 				<p>Pulsa <a href="form_alta_usuario.php">aquí</a> para iniciar sesion.</p>
 			</div>
 		<?php } else { ?>
-				<!-- MENSAJE DE QUE USUARIO YA EXISTE -->
-				
-				<div class="mensaje_bienvenida" >	
-					<h1>El usuario <?php echo $formulario["cif"] ?> ya existe en la base de datos.</h1>
-					Pulsa <a href="form_alta_usuario.php">aquí</a> para volver al formulario.
-				</div>
+			<!-- MENSAJE DE QUE USUARIO YA EXISTE -->
+			<div class="mensaje_bienvenida" >	
+				<h1>El usuario <?php echo $formulario["cif"] ?> ya existe en la base de datos.</h1>
+				Pulsa <a href="form_alta_usuario.php">aquí</a> para volver al formulario.
+			</div>
 		<?php } ?>
 	</main>
 

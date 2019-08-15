@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/form_alta_usuario.css"/>
     <link rel="stylesheet" type="text/css" href="css/excepciones.css"/>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-    <script src="js/validacionAltaUsuario.js" type="text/javascript"></script>
+    <script src="js/validacion.js" type="text/javascript"></script>
 </head>
 <body>
     <header>
@@ -70,6 +70,17 @@
 
         });
     </script>
+    
+    <?php 
+        // Mostrar los erroes de validación (Si los hay)
+        /*if(isset($errores) && count($errores) > 0){
+            echo "<div id=\"div_errores\" class=\"error\">";
+                echo "<h4>Errores en el formulario:</h4>";
+                foreach($errores as $error) echo $error;
+                echo "</div>";
+        }*/
+		
+    ?>
         <div id="formularios">
             <div id="formAlta">
                 <form id="altaUsuario" method="get" action="validacion_alta_usuario.php"  class="formulario" >

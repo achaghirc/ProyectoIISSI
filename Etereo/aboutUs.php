@@ -17,15 +17,15 @@
     <div class="datos">
       <div class="direccion">
         <h2>Dirección</h2>
-        <p>Edificio Vilamar 2</p>
-        <p>C/ Biología, 12</p>
+        <p id="fila">Edificio Vilamar 2</p>
+        <p id="fila">C/ Biología, 12</p>
         <p>41015, Sevilla</p>
         <br/>
-        <p>info@etereopublicity.com</p>
+        <p id="fila">info@etereopublicity.com</p>
         <p>Tel: 625 626 175</p>
       </div>
       <div class="descripcion">
-        <p style="font-size: initial;">
+        <p id="parrafo">
           Etéreo nace de la idea de ayudar a las empresas más pequeñas, 
           que aún no han alcanzado todo su potencial, pues desconocen cómo triunfar en el mundo online.
           Te ayudamos a encontrar tu sitio en la red, desde cero, o partiendo de tus valores.

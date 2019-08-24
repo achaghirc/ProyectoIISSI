@@ -87,11 +87,13 @@
                 </div>
             <?php } ?>
 	        <form method="get" action="adminPage.php" class="mostrando">
+                
         		<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
         		Mostrando
 		        <input id="PAG_TAM" class="nelementos" name="PAG_TAM" type="number" min="1" max="<?php echo $total_registros ?>"
             		value="<?php echo $pag_tam?>" autofocus="autofocus" />
-        		clientes de <?php echo $total_registros?>
+                clientes de <?php echo $total_registros?>
+                <input id="var2" name="var2" type="hidden" value="<?php echo $_SESSION['login'] ?>"/>
     	    	<input type="submit" value="Cambiar" class="botones">
             </form>
         </div>

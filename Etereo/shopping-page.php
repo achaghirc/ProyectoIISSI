@@ -7,6 +7,7 @@ require_once("gestionBD.php");
 require_once("gestionarProductos.php");
 $conexion=crearConexionBD();
 $filas = consultarTodosProductos($conexion);
+$productos = consultarTodosProductos($conexion);
 
 ?>
 <!DOCTYPE html>
@@ -34,9 +35,10 @@ $filas = consultarTodosProductos($conexion);
                 include_once("cabeceraAdmin.php");
             }else if($custrow['ADMINISTRADOR'] == "NO"){
                 include_once("cabecera2.php");
-            }else{
-                include_once("cabecera.php");
+            }else {
+                include_once("cabecera2.php");
             }
+            
 
 ?>
 <div class="container">
@@ -53,20 +55,33 @@ $filas = consultarTodosProductos($conexion);
                 <?php }else{   ?>
                     <div class="columna">
                 <?php } ?>
+
                         <img class="imagen" src="./images/temperas.jpeg">
                         <div class="datos">
+                        
+                        <?php if($custrow['ADMINISTRADOR'] == "YES"){ ?>
+                        <form method="post" action="controlador_productos.php">
+                            <input id="IDENTIFICADOR" name="IDENTIFICADOR" type="hidden" value="<?php echo $fila["IDENTIFICADOR"];?>"/>
+                            <input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"];?>"/>
+                            <input id="DESCRIPCION" name="DESCRIPCION" type="hidden" value="<?php echo $fila["DESCRIPCION"];?>"/>
+                            <input id="PRECIO" name="PRECIO" type="hidden" value="<?php echo $fila["PRECIO"];?>"/>
+                        
                             <h2><?php echo $fila["NOMBRE"]; ?></h2>
                             <h3><?php echo $fila["DESCRIPCION"]; ?></h3>
                             <p><?php echo $fila["PRECIO"].' €'; ?></p>
-                            <?php if($custrow['ADMINISTRADOR'] == "YES"){ ?>
-                            <button class="aniadir" role="link" onclick="window.location='accion_carrito.php?action=aniadirCarrito&id=<?php echo $fila['IDENTIFICADOR']?>'">
-                            Modificar Producto
+
+                            <button class="aniadir" type="submit">
+                                Modificar Producto
+                            </button>
+                            </form>    
                             <?php }else { ?>
-                            </button>
-                            <button class="aniadir" role="link" onclick="window.location='accion_carrito.php?action=aniadirCarrito&id=<?php echo $fila['IDENTIFICADOR']?>'">
-                            Añadir al carrito
-                            </button>
-                            <?php } ?>
+                                <h2><?php echo $fila["NOMBRE"]; ?></h2>
+                                <h3><?php echo $fila["DESCRIPCION"]; ?></h3>
+                                <p><?php echo $fila["PRECIO"].' €'; ?></p>
+                                <button class="aniadir" role="link" onclick="window.location='accion_carrito.php?action=aniadirCarrito&id=<?php echo $fila['IDENTIFICADOR']?>'">
+                                Añadir al carrito
+                                </button>
+                                <?php } ?>
                         </div>
                     </div>
             <?php }

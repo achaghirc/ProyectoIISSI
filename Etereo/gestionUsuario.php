@@ -18,8 +18,7 @@ function alta_usuario($conexion,$usuario) {
         $stmt->execute();
         return true;
     }catch(PDOException $e){
-        $_SESSION['excepcion'] = $e->GetMessage();
-		Header("Location: excepcion.php");
+        return false;
     }
 }
 /* PARA CONSULTAR LOS DATOS DE LOS USUARIOS */
@@ -66,7 +65,7 @@ function modificarUsuario($conexion,$cif,$nombre,$direccion,$correoElectronico,$
         $stmt -> execute();
         return true;
     }catch(PDOException $e){
-        return $e->getMessage();
+        return false;
     }
 }
 function eliminarCliente($conexion,$correoElectronico){
@@ -76,7 +75,7 @@ function eliminarCliente($conexion,$correoElectronico){
         $stmt -> execute();
         return "";
     }catch(PDOException $e){
-        return $e->getMessage();
+        return false;
     }
 }
 ?>

@@ -5,6 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/vistaAdministrador.css" media="screen"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="js/validacionEditaUsuario.js" type="text/javascript"></script>
 </head>
 <body style="margin: unset;">
         <?php
@@ -23,6 +25,25 @@
             }
         
         ?>
+        <script>
+		// Inicialización de elementos y eventos cuando el documento se carga completamente
+		$(document).ready(function() {
+			$("#editaUsuario").on("submit", function() {
+				return validateEdition();
+            });
+
+				validateCif();            
+
+				validateName();
+            
+				validateDirection();
+
+				validateEmail();
+
+				validateTel();
+
+        });
+    </script>
         <?php
            // include_once("cabecera.php");
             if(isset($_SESSION['login'])){
@@ -82,25 +103,35 @@
 		    	    <?php if ( $pagina == $pagina_seleccionada) { 	?>
 			       	    <span class="current"><?php echo $pagina; ?></span>
     		        <?php }	else { ?>
-        				<a href="adminPage.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>&var2=admin@admin.com"><?php echo $pagina ?></a>
+        				<a href="adminPage.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina ?></a>
 	                <?php } ?>
                 </div>
             <?php } ?>
 	        <form method="get" action="adminPage.php" class="mostrando">
-                
         		<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
         		Mostrando
 		        <input id="PAG_TAM" class="nelementos" name="PAG_TAM" type="number" min="1" max="<?php echo $total_registros ?>"
             		value="<?php echo $pag_tam?>" autofocus="autofocus" />
-                clientes de <?php echo $total_registros?>
-                <input id="var2" name="var2" type="hidden" value="<?php echo $_SESSION['login'] ?>"/>
+        		clientes de <?php echo $total_registros?>
     	    	<input type="submit" value="Cambiar" class="botones">
             </form>
         </div>
     </nav>
     <section class="cuerpo">
+    <?php 
+        // Mostrar los errores de validación (Si los hay)
+        if(isset($errores) && count($errores) > 0){
+            echo "<div id=\"div_errores\" class=\"error\">";
+                echo "<h4>Errores en el formulario:</h4>";
+                foreach($errores as $error) echo $error;
+                echo "</div>";
+        }
+		
+    ?>
         <div id="cuerpo">
             <table class="tablaUsuarios">
+            <p><?php $_REQUEST['var2'] ?></p>
+            <p><?php $_REQUEST['CIF'] ?></p>
                 <tr class="titulos">
                     <th id="columOID">OID_CLIENTE</th>
                     <th id="nombre">NOMBRE</th>
@@ -113,7 +144,7 @@
                 </tr>
                 <?php foreach($filas as $fila) { ?>
                 <article>
-                    <form method="post" action="controlador_usuario.php">
+                    <form method="post" id="editaUsuario" action="controlador_usuario.php">
                         <div>
                     <input id= "OID_CLI" name ="OID_CLI" type="hidden" value="<?php echo $fila["OID_CLI"]; ?>"/>
                     <input id= "NOMBRE" name ="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
@@ -126,12 +157,12 @@
                     <?php if(isset($usuario) and ($_GET["var2"] == $fila["CIF"])){?>
                     <!--Editando Cliente-->
                     <td><h4><?php echo $fila["OID_CLI"];?></h4></td>
-                    <td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"];?>"/></h3></td>
-                    <td><h3><input id="CIF" name="CIF" type="text" value="<?php echo $fila["CIF"];?>"/></h3></td>
-                    <td><h3><input id="DIRECCION" name="DIRECCION" type="text" value="<?php echo $fila["DIRECCION"];?>"/></h3></td>
-                    <td><h3><input id="CORREOELECTRONICO" name="CORREOELECTRONICO" type="text" value="<?php echo $fila["CORREOELECTRONICO"];?>"/></h3></td>
-                    <td><h3><input id="CONTRASEÑA" name="CONTRASEÑA" type="password" value="<?php echo $fila["CONTRASEÑA"];?>"/></h3></td>
-                    <td><h3><input id="TELEFONO" name="TELEFONO" type="text" value="<?php echo $fila["TELEFONO"];?>"/></h3></td>
+                    <td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"];?>" required oninput="validateName();"/></h3></td>
+                    <td><h3><input id="CIF" name="CIF" type="text" value="<?php echo $fila["CIF"];?>" required oninput="validateCif();"/></h3></td>
+                    <td><h3><input id="DIRECCION" name="DIRECCION" type="text" value="<?php echo $fila["DIRECCION"];?>" required oninput="validateDirection();"/></h3></td>
+                    <td><h3><input id="CORREOELECTRONICO" name="CORREOELECTRONICO" type="text" value="<?php echo $fila["CORREOELECTRONICO"];?>" required oninput="validateEmail();"/></h3></td>
+                    <td><h3><input id="CONTRASEÑA" name="CONTRASEÑA" type="password" value="<?php echo $fila["CONTRASEÑA"];?>" required oninput="validatePass();"/></h3></td>
+                    <td><h3><input id="TELEFONO" name="TELEFONO" type="text" value="<?php echo $fila["TELEFONO"];?>" required oninput="validateTel();"/></h3></td>
                     <?php } else { ?>
                     <!--Mostrando cliente-->
                     <input id=CIF name="CIF" type="hidden" value="<?php echo $fila["CIF"];?>"/>

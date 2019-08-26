@@ -4,9 +4,16 @@
         require_once("gestionUsuario.php");
         //Si no existen datos del formulario en la sesion, se crea una 
         //entrada con los valores por defecto
-        if(isset($_SESSION['usuario'])){
-            $usuario=$_SESSION['usuario'];
+        if(isset($_REQUEST['OID_CLI'])){
+            $usuario['OID_CLI']=$_REQUEST['OID_CLI'];
+            $usuario['CIF']=$_REQUEST['CIF'];
+            $usuario['NOMBRE']=$_REQUEST['NOMBRE'];
+            $usuario['DIRECCION']=$_REQUEST['DIRECCION'];
+            $usuario['CORREOELECTRONICO']=$_REQUEST['CORREOELECTRONICO'];
+            $usuario['CONTRASEÑA']=$_REQUEST['CONTRASEÑA'];
+            $usuario['TELEFONO']=$_REQUEST['TELEFONO'];
 
+            $_SESSION['usuario'] = $usuario;
         }
         /*Si ya existian valores los cogemos para inicializar el formulario *
         /*Si hay errores de validacion, hay que mostrarlos y marcar los campos */
@@ -21,21 +28,36 @@
     <div class="title">
         <title>Actualiza</title>
     </div>
+    <link rel="stylesheet" type="text/css" href="css/form_alta_usuario.css"/>
     <link rel="stylesheet" type="text/css" href="css/prueba.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script src="js/validacionEditaUsuario.js" type="text/javascript"></script>
         <?php 
-            $cif = $_REQUEST['var2'];
-            echo $cif."\n";
-            echo $usuario["CORREOELECTRONICO"];
-            $conexion = crearConexionBD();
-            $query = $conexion->query("SELECT * FROM CLIENTE"
-            . " WHERE (CLIENTE.CIF = '".$cif."')");
-            $custrow = $query->fetch(PDO::FETCH_ASSOC);
+            $oid_cliente = $_REQUEST['OID_CLI'];
         ?>
 </head>
-<body>
-    <?php 
-       
-    ?>
+<body style="
+    padding: 0% 30%;
+">
+<script>
+		// Inicialización de elementos y eventos cuando el documento se carga completamente
+		$(document).ready(function() {
+			$("#editaUsuario").on("submit", function() {
+				return validateEdition();
+            });
+
+				validateCif();            
+
+				validateName();
+            
+				validateDirection();
+
+				validateEmail();
+
+				validateTel();
+
+        });
+    </script>
     <?php 
         // Mostrar los erroes de validación (Si los hay)
         if(isset($errores) && count($errores) > 0){
@@ -47,7 +69,7 @@
 		
     ?>
    
-                <form id="actualizaUsuario" method="post" action="accion_actualizar_usuario.php"  class="formulario" novalidate>
+                <form id="actualizaUsuario" method="post" action="controlador_usuario.php"  class="formulario" >
                         <div class="informacion">
                             <p>
                                 <i>Elige los campos a editar para el usuario</i>
@@ -55,39 +77,36 @@
                         </div>
                  <h1 class="titulo_formulario">Actualiza</h1>
                     
+                    <input id="OID_CLI" name="OID_CLI" class="input-css" type="hidden" size="40" value="<?php echo $usuario['OID_CLI'];?>"/>
+
                     <label for="cif" class="label-css">CIF: </label>
-                    <input id="cif" name="CIF" class="input-css" type="string" size="40" value="<?php echo $usuario['CIF'];?>"  required/>
+                    <input id="CIF" name="CIF" class="input-css" type="string" size="40" value="<?php echo $usuario['CIF'];?>"  required oninput="validateCif();"/>
                      
                     <label for="nom" class="label-css">Nombre Empresa:</label>
-                    <input id="nombre" name="NOMBRE" class="input-css" type="text" value="<?php echo $usuario['NOMBRE']?>" required>
+                    <input id="NOMBRE" name="NOMBRE" class="input-css" type="text" value="<?php echo $usuario['NOMBRE']?>" required oninput="validateName();">
                     
                     <label for="direc" class="label-css">Direccion:</label>
-                    <input id="direccion" name="DIRECCION" class="input-css" type="text" value="<?php echo $usuario['DIRECCION'];?>"  required/>
+                    <input id="DIRECCION" name="DIRECCION" class="input-css" type="text" value="<?php echo $usuario['DIRECCION'];?>"  required oninput="validateDirection();"/>
                     
                     <label for="correoElec" class="label-css">Correo Electronico: </label>
-                    <input id="correoElectronico" name="CORREOELECTRONICO"class="input-css" type="text" size="40" value="<?php echo $usuario['CORREOELECTRONICO'];?>" required/>
+                    <input id="CORREOELECTRONICO" name="CORREOELECTRONICO"class="input-css" type="text" size="40" value="<?php echo $usuario['CORREOELECTRONICO'];?>" required oninput="validateEmail();"/>
                     
                     <label for="contraseña" class="label-css">Contraseña:</label>
-                    <input id="contraseña" name="CONTRASEÑA" class="input-css" type="password" minlength="8" placeholder="<?php echo $usuario['CONTRASEÑA'];?>" required/>
-                    
-                    <label for="confirmpassword" class="label-css">Confirmar Contraseña:</label>
-                    <input id="confirmpassword" name="confirmpassword" class="input-css" type="password" minlength="8" placeholder="<?php echo $usuario['CONTRASEÑA'];?>" required/>
+                    <input id="CONTRASEÑA" name="CONTRASEÑA" class="input-css" type="password" minlength="8" value="<?php echo $usuario['CONTRASEÑA'];?>" required oninput="validatePass();"/>
                     
                     <label for="telCliente" class="label-css">Telefono de Contacto: </label>
-                    <input id="telCliente" name="TELEFONO" class="input-css" type="tel" vaule="<?php echo $usuario['TELEFONO'];?>" minlength="9"  required/>
+                    <input id="TELEFONO" name="TELEFONO" class="input-css" type="tel" value="<?php echo $usuario['TELEFONO'];?>" minlength="9"  required oninput="validateTel();"/>
                     
-                    <?php if (isset($usuario) and ($usuario["CIF"] == $cif)) { ?>
+                    <?php if (isset($usuario) and ($usuario["OID_CLI"] == $oid_cliente)) { ?>
                     <td id="imagenes">
                         <div class="imagenes">
                             <button id="grabar" name="grabar" class="nav-link" type="submit">
-										<p>Guardar modificación</p>
-                                    </button>
-                    <?php } else { ?>
-                            <button id="editar" name="editar" class="nav-link" type="submit">
-										<p>Editar Cliente</p>
-							</button>
-                    <?php } ?>
-                    
+                                <p>Guardar modificación</p>
+                            </button>
+                            <button id="borrar" name="borrar" class="nav-link" type="submit">
+                                <p>Eliminar cliente</p>
+                            </button>
+                    <?php } ?> 
                 </form>
     <main>
 

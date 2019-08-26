@@ -5,8 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/vistaAdministrador.css" media="screen"/>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-    <script src="js/validacionEditaUsuario.js" type="text/javascript"></script>
+    
 </head>
 <body style="margin: unset;">
         <?php
@@ -144,13 +143,13 @@
                 </tr>
                 <?php foreach($filas as $fila) { ?>
                 <article>
-                    <form method="post" id="editaUsuario" action="controlador_usuario.php">
+                    <form method="post" id="editaUsuario" action="form_actualizar_usuario.php">
                         <div>
                     <input id= "OID_CLI" name ="OID_CLI" type="hidden" value="<?php echo $fila["OID_CLI"]; ?>"/>
                     <input id= "NOMBRE" name ="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
                     <input id= "CIF" name ="CIF" type="hidden" value="<?php echo $fila["CIF"]; ?>"/>
                     <input id= "DIRECCION" name ="DIRECCION" type="hidden" value="<?php echo $fila["DIRECCION"]; ?>"/>
-                    <input id= "CORREOELECTRONICO" name ="OID_CLI" type="hidden" value="<?php echo $fila["CORREOELECTRONICO"]; ?>"/>
+                    <input id= "CORREOELECTRONICO" name ="CORREOELECTRONICO" type="hidden" value="<?php echo $fila["CORREOELECTRONICO"]; ?>"/>
                     <input id= "CONTRASEÑA" name ="CONTRASEÑA" type="hidden" value="<?php echo $fila["CONTRASEÑA"]; ?>"/>
                     <input id= "TELEFONO" name ="TELEFONO" type="hidden" value="<?php echo $fila["TELEFONO"]; ?>"/>
                     
@@ -178,19 +177,9 @@
                     <?php if ($_GET['var2']==$admin) { ?>
                         <div class="imagenes">
                         <button id="editar" name="editar" class="nav-link" type="submit">
-										<p>Editar Cliente</p>
-							</button>
-                    <?php } else if(isset($usuario) and ($usuario["OID_CLI"] == $fila["OID_CLI"])){ ?>
-                        <button id="grabar" name="grabar" class="nav-link" type="submit">
-										<p>Guardar</p>
-                                    </button>    
-                     
-							<button id="borrar" name="borrar" class="nav-link" type="submit">
-										<p>Borrar Cliente</p>
-                            </button>
-                    <?php } ?>
-                                       
-                        </div>
+							<p>Editar Cliente</p>
+						</button>  
+                        </div><?php } ?>
                     </td>
                 </tr>
                     </form>

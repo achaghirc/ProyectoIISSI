@@ -102,7 +102,7 @@
 		    	    <?php if ( $pagina == $pagina_seleccionada) { 	?>
 			       	    <span class="current"><?php echo $pagina; ?></span>
     		        <?php }	else { ?>
-        				<a href="adminPage.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina ?></a>
+        				<a href="adminPage.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam;?>&var2=admin@admin.com"><?php echo $pagina ?></a>
 	                <?php } ?>
                 </div>
             <?php } ?>
@@ -111,7 +111,8 @@
         		Mostrando
 		        <input id="PAG_TAM" class="nelementos" name="PAG_TAM" type="number" min="1" max="<?php echo $total_registros ?>"
             		value="<?php echo $pag_tam?>" autofocus="autofocus" />
-        		clientes de <?php echo $total_registros?>
+                clientes de <?php echo $total_registros?>
+                <input id="var2" name="var2" type="hidden" value="<?php echo $_SESSION['login']?>"/>
     	    	<input type="submit" value="Cambiar" class="botones">
             </form>
         </div>
@@ -129,8 +130,7 @@
     ?>
         <div id="cuerpo">
             <table class="tablaUsuarios">
-            <p><?php $_REQUEST['var2'] ?></p>
-            <p><?php $_REQUEST['CIF'] ?></p>
+
                 <tr class="titulos">
                     <th id="columOID">OID_CLIENTE</th>
                     <th id="nombre">NOMBRE</th>

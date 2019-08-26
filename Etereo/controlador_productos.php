@@ -73,7 +73,7 @@
                  <h1 class="titulo_formulario">Edite los campos</h1>
                     
                     <label for="IDENTIFICADOR" class="label-css">IDENTIFICADOR: </label>
-                    <input id="IDENTIFICADOR" name="IDENTIFICADOR" class="input-css" type="number" size="40" value="<?php echo $_REQUEST["IDENTIFICADOR"] ?>" required />
+                    <input id="IDENTIFICADOR" name="IDENTIFICADOR" class="input-css" type="text" size="40" value="<?php echo $_REQUEST["IDENTIFICADOR"] ?>" readonly  />
                      
                     <label for="NOMBRE" class="label-css">NOMBRE:</label>
                     <input id="NOMBRE" name="NOMBRE" class="input-css" type="text" placeholder="<?php echo $_REQUEST["NOMBRE"] ?>" required/>

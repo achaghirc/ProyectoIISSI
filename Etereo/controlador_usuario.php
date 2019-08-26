@@ -14,7 +14,7 @@
 		
 		if (isset($_REQUEST["editar"])) Header("Location: adminPage.php?var2=" .$usuario["OID_CLI"]); 
 		else if (isset($_REQUEST["grabar"])) Header("Location: accion_actualizar_usuario.php?var2=" .$usuario["OID_CLI"]);
-		else /* if (isset($_REQUEST["borrar"])) */ Header("Location: accion_quitar_usuario.php?var2=" .$usuario["OID_CLI"]); 
+		else if (isset($_REQUEST["borrar"]))  Header("Location: accion_quitar_usuario.php?var2=" .$usuario["OID_CLI"]); 
 
 	}
 	else {

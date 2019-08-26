@@ -58,6 +58,25 @@
 
         });
     </script>
+    <?php
+      include_once("gestionUsuario.php");
+      include_once("gestionBD.php");
+      
+      $conexion=crearConexionBD();
+      $email = $_SESSION['login'];
+      $pass = $_SESSION['pass'];
+      $esAdmin = consultarSiAdministrador($conexion,$email,$pass);
+      $custrow= $esAdmin -> Fetch(PDO::FETCH_ASSOC);
+      cerrarConexionBD($conexion);
+
+          if($custrow['ADMINISTRADOR'] == "YES"){
+              include_once("cabeceraAdmin.php");
+          }else if($custrow['ADMINISTRADOR'] == "NO"){
+              include_once("cabecera2.php");
+          }else{
+              include_once("cabecera.php");
+          }
+    ?>
     <?php 
         // Mostrar los erroes de validación (Si los hay)
         if(isset($errores) && count($errores) > 0){

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" >
 <head>
   <meta charset="utf-8">
   <title>Gestión de Clientes: Alta de Cliente realizada con éxito</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="icon" type="image/vnd.microsoft.icon" href="assets/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/style.css"  media="screen"/>
 </head>
 
-<body>
+<body style="margin: unset; background-color:aliceblue;">
 	<?php
 		include_once("cabecera.php");
 		
@@ -27,7 +28,6 @@
     //Abrir conexion con la base de datos
     $conexion = crearConexionBD();
 	?>
-
 	<main>
 		<!-- CONSULTAR EL TEMA DE TEORÍA SOBRE ACCESO A DATOS -->
 		<?php 	// AQUÍ SE INVOCA A LA FUNCIÓN DE ALTA DE USUARIO
@@ -42,10 +42,12 @@
 		<?php } else { ?>
 				<!-- MENSAJE DE QUE USUARIO YA EXISTE -->
 				
-				<div class="mensaje_bienvenida" >	
-					<h1>El usuario <?php echo $formulario["cif"] ?> ya existe en la base de datos.</h1>
-					Pulsa <a href="form_alta_usuario.php">aquí</a> para volver al formulario.
-				</div>
+				<div class="body-error">
+        			<div class="mensaje-error">
+				<div style="margin-top: 15%;"><h1 id="mensaje-error" >El usuario <?php echo $formulario["cif"] ?> ya existe en la base de datos.</h1></div>
+				<div class="boton-error">
+            		<button id="boton-error" style="margin-top: 79%;"><a id="mensaje-boton-error" href="form_alta_usuario.php">prueba otros datos</a></button>
+        		</div>
 		<?php } ?>
 	</main>
 

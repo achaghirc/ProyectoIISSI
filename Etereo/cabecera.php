@@ -19,7 +19,7 @@
                     <a class="navmenu_link">Etéreo</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
-                    <a class="navmenu_link" href="coverPage.php" style="color: black; text-decoration:none;">Home</a>
+                    <a class="navmenu_link" href="index.php" style="color: black; text-decoration:none;">Home</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
                     <a class="navmenu_link" href="shopping-page.php" style="color: black; text-decoration:none;">Shop</a>
@@ -56,7 +56,7 @@
                     <a class="navmenu_link">Etéreo</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
-                    <a class="navmenu_link" href="coverPage.php" style="color: black; text-decoration:none;">Home</a>
+                    <a class="navmenu_link" href="index.php" style="color: black; text-decoration:none;">Home</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
                     <a class="navmenu_link" href="shopping-page.php" style="color: black; text-decoration:none;">Shop</a>

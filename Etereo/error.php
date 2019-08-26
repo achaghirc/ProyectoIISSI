@@ -14,7 +14,7 @@
             <div><h1 id="mensaje-error">Ha habido un error, por favor</h1></div>
         </div>
         <div class="boton-error">
-            <button id="boton-error"><a id="mensaje-boton-error" href="coverPage.php">vuelve a intentarlo</a></button>
+            <button id="boton-error"><a id="mensaje-boton-error" href="form_alta_usuario.php">vuelve a intentarlo</a></button>
         </div>
     </div>
 </body>

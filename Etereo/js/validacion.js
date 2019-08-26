@@ -52,7 +52,6 @@ function validaTelefono() {
     return error;
 }
 
-
 function validaCif() {
     var cif = document.getElementById("cif");
     var codigoCif = cif.value;

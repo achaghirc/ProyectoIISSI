@@ -53,6 +53,10 @@ function consultarOID_CLI($conexion,$correoElectronico) {
         . " WHERE (CLIENTES.CORREOELECTRONICO = '".$correoElectronico."')";
     return $conexion->query($consulta);
 }
+function consultarCIF($conexion){
+    $consulta = "SELECT CIF FROM CLIENTES";
+    return $conexion->query($consulta);
+}
 function modificarUsuario($conexion,$cif,$nombre,$direccion,$correoElectronico,$contraseña,$telefono){
     try{
         $stmt=$conexion->prepare('CALL ACTUALIZAR_CLIENTE(:cif,:nombre,:direccion,:correoElectronico,:contraseña,:telCliente)');

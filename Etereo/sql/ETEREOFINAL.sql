@@ -78,20 +78,18 @@ END;
 insert into Clientes(CIF,NOMBRE,DIRECCION,CORREOELECTRONICO,CONTRASEÑA,TELEFONO,ADMINISTRADOR,OID_CLI) values('E89SD5423','Admin','c/Prueba','admin@admin.com','12345678g','631102599','YES',1);
 /*A MODO DE PRUEBA DE QUE TODO FUNCIONA, INSERTAMOS CLIENTES EN LA BASE DATOS CON EL INSERTAR CLIENTE,*/ 
 /*LOS ACTUALIZAMOS PONIENDOLE UN ESPACIO AL NOMBRE Y BORRAMOS EL CLIENTE 5 */
-EXECUTE INSERTAR_CLIENTE('589665d55','Pymex','C/San Geronimo','cliente@cliente.com','12345678g','965221452');
-EXECUTE INSERTAR_CLIENTE('589665d65','Cliente1','C/San Geronimo','cliente1@cliente.com','12345678g','965221452');
-EXECUTE INSERTAR_CLIENTE('98589556d','Cliente2','C/San Francisco','cliente2@cliente.com','12345678g','924555652');
-EXECUTE INSERTAR_CLIENTE('7457G445T','Cliente3','C/San Alcantara','cliente3@cliente.com','12345678g','924866548');
-EXECUTE INSERTAR_CLIENTE('98DD562FS','Cliente4','Avnd.De la Paz s/n','cliente4@cliente.com','12345678g','924889556');
-EXECUTE INSERTAR_CLIENTE('789DD54F2','Cliente5','C/Francisco De La Hera','cliente5@cliente.com','12345678g','924633255');
+EXECUTE INSERTAR_CLIENTE('589665d55','Pymex','C/San Geronimo','cliente@cliente.com','12345678gG','965221452');
+EXECUTE INSERTAR_CLIENTE('589665d65','Cliente1','C/San Geronimo','cliente1@cliente.com','12345678gG','965221452');
+EXECUTE INSERTAR_CLIENTE('98589556d','Cliente2','C/San Francisco','cliente2@cliente.com','12345678gG','924555652');
+EXECUTE INSERTAR_CLIENTE('7457G445T','Cliente3','C/San Alcantara','cliente3@cliente.com','12345678gG','924866548');
+EXECUTE INSERTAR_CLIENTE('98DD562FS','Cliente4','Avnd.De la Paz s/n','cliente4@cliente.com','12345678gG','924889556');
+EXECUTE INSERTAR_CLIENTE('789DD54F2','Cliente5','C/Francisco De La Hera','cliente5@cliente.com','12345678gG','924633255');
 /*LOS ACTUALIZAMOS PONIENDOLE UN ESPACIO AL NOMBRE  */
-EXECUTE ACTUALIZAR_CLIENTE('589665d65','Cliente 1','C/San Geronimo','cliente1@cliente.com','12345678g','965221452');
-EXECUTE ACTUALIZAR_CLIENTE('98589556d','Cliente 2','C/San Francisco','cliente2@cliente.com','12345678g','924555652');
-EXECUTE ACTUALIZAR_CLIENTE('7457G445T','Cliente 3','C/San Alcantara','cliente3@cliente.com','12345678g','924866548');
-EXECUTE ACTUALIZAR_CLIENTE('98DD562FS','Cliente 4','Avnd.De la Paz s/n','cliente4@cliente.com','12345678g','924889556');
-EXECUTE ACTUALIZAR_CLIENTE('789DD54F2','Cliente 5','C/Francisco De La Hera','cliente5@cliente.com','12345678g','924633255');
-EXECUTE ACTUALIZAR_PRODUCTO('1','Redes Sociales','En etéreo nos comprometemos a que tu empresa tenga la mejor imagen de cara al público, sea reconocida y aumenten tus ventas. Todo ello de la mano de expertos community manager.',250);
-EXECUTE ACTUALIZAR_PRODUCTO('2','Produccion','Una imagen vale más que mil palabra, una buena imagen tiene un valor incalculable. Etéreo te ofrece asesoramiento, creación y remasterización en todos los ámbitos del diseño.',550);
+EXECUTE ACTUALIZAR_CLIENTE('589665d65','Cliente 1','C/San Geronimo','cliente1@cliente.com','12345678gG','965221452');
+EXECUTE ACTUALIZAR_CLIENTE('98589556d','Cliente 2','C/San Francisco','cliente2@cliente.com','12345678gG','924555652');
+EXECUTE ACTUALIZAR_CLIENTE('7457G445T','Cliente 3','C/San Alcantara','cliente3@cliente.com','12345678gG','924866548');
+EXECUTE ACTUALIZAR_CLIENTE('98DD562FS','Cliente 4','Avnd.De la Paz s/n','cliente4@cliente.com','12345678gG','924889556');
+EXECUTE ACTUALIZAR_CLIENTE('789DD54F2','Cliente 5','C/Francisco De La Hera','cliente5@cliente.com','12345678gG','924633255');
 
 /*BORRAMOS EL CLIENTE 5*/
 EXECUTE BORRAR_CLIENTE('cliente5@cliente.com');
@@ -137,3 +135,7 @@ INSERT INTO PRODUCTOS VALUES ('4','Fotografía','Contamos con fotógrafos profesio
 Además de contar con una plantilla de productores profesionales que harán de tu vídeo promocional toda una delicia visual. ',150,TO_DATE('05/18/2019', 'MM/DD/YYYY'));
 INSERT INTO PRODUCTOS VALUES ('5','Merchandasing','En Etéreo te ofrecemos la oportunidad de dar un paso más en tu empresa.
 Creando así una línea corporativa tanto en material de empresa (bolígrafos, folios, carpetas...) como en uniformes de empresa.',200,TO_DATE('05/18/2019', 'MM/DD/YYYY'));
+/*ACTUALIZANDO DOS PRODUCTOS PARA PROBAR LA FUNCION*/
+EXECUTE ACTUALIZAR_PRODUCTO('1','Redes Sociales','En etéreo nos comprometemos a que tu empresa tenga la mejor imagen de cara al público, sea reconocida y aumenten tus ventas. Todo ello de la mano de expertos community manager.',250);
+EXECUTE ACTUALIZAR_PRODUCTO('2','Produccion','Una imagen vale más que mil palabra, una buena imagen tiene un valor incalculable. Etéreo te ofrece asesoramiento, creación y remasterización en todos los ámbitos del diseño.',550);
+

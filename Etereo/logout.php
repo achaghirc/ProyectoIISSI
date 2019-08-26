@@ -4,5 +4,5 @@
     if (isset($_SESSION['login']))
         $_SESSION['login'] = null;
     
-    header("Location: coverPage.php");
+    header("Location: index.php");
 ?>

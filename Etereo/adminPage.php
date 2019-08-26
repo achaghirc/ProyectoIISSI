@@ -154,7 +154,7 @@
                     <input id= "CONTRASEÑA" name ="CONTRASEÑA" type="hidden" value="<?php echo $fila["CONTRASEÑA"]; ?>"/>
                     <input id= "TELEFONO" name ="TELEFONO" type="hidden" value="<?php echo $fila["TELEFONO"]; ?>"/>
                     
-                    <?php if(isset($usuario) and ($_GET["var2"] == $fila["CIF"])){?>
+                    <?php if(isset($usuario) and ($_GET["var2"] == $fila["OID_CLI"])){?>
                     <!--Editando Cliente-->
                     <td><h4><?php echo $fila["OID_CLI"];?></h4></td>
                     <td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"];?>" required oninput="validateName();"/></h3></td>
@@ -165,7 +165,7 @@
                     <td><h3><input id="TELEFONO" name="TELEFONO" type="text" value="<?php echo $fila["TELEFONO"];?>" required oninput="validateTel();"/></h3></td>
                     <?php } else { ?>
                     <!--Mostrando cliente-->
-                    <input id=CIF name="CIF" type="hidden" value="<?php echo $fila["CIF"];?>"/>
+                    <input id="OID_CLI" name="OID_CLI" type="hidden" value="<?php echo $fila["OID_CLI"];?>"/>
                     <td class="datos"><h4><?php echo $fila["OID_CLI"];?></h4></td>
                     <td class="datos"><h4><?php echo $fila["NOMBRE"];?></h4></td>
                     <td class="datos"><h4><?php echo $fila["CIF"];?></h4></td>
@@ -180,7 +180,7 @@
                         <button id="editar" name="editar" class="nav-link" type="submit">
 										<p>Editar Cliente</p>
 							</button>
-                    <?php } else if(isset($usuario) and ($usuario["CIF"] == $fila["CIF"])){ ?>
+                    <?php } else if(isset($usuario) and ($usuario["OID_CLI"] == $fila["OID_CLI"])){ ?>
                         <button id="grabar" name="grabar" class="nav-link" type="submit">
 										<p>Guardar</p>
                                     </button>    

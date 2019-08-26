@@ -97,8 +97,20 @@
         </div>
     </nav>
     <section class="cuerpo">
+    <?php 
+        // Mostrar los errores de validación (Si los hay)
+        if(isset($errores) && count($errores) > 0){
+            echo "<div id=\"div_errores\" class=\"error\">";
+                echo "<h4>Errores en el formulario:</h4>";
+                foreach($errores as $error) echo $error;
+                echo "</div>";
+        }
+		
+    ?>
         <div id="cuerpo">
             <table class="tablaUsuarios">
+            <p><?php $_REQUEST['var2'] ?></p>
+            <p><?php $_REQUEST['CIF'] ?></p>
                 <tr class="titulos">
                     <th id="columOID">OID_CLIENTE</th>
                     <th id="nombre">NOMBRE</th>

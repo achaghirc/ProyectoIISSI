@@ -6,7 +6,6 @@
         //entrada con los valores por defecto
         if(isset($_SESSION['usuario'])){
             $usuario=$_SESSION['usuario'];
-
         }
         /*Si ya existian valores los cogemos para inicializar el formulario *
         /*Si hay errores de validacion, hay que mostrarlos y marcar los campos */
@@ -33,21 +32,7 @@
         ?>
 </head>
 <body>
-    <?php 
-       
-    ?>
-    <?php 
-        // Mostrar los erroes de validación (Si los hay)
-        if(isset($errores) && count($errores) > 0){
-            echo "<div id=\"div_errores\" class=\"error\">";
-                echo "<h4>Errores en el formulario:</h4>";
-                foreach($errores as $error) echo $error;
-                echo "</div>";
-        }
-		
-    ?>
-   
-                <form id="actualizaUsuario" method="post" action="accion_actualizar_usuario.php"  class="formulario" novalidate>
+        <form id="actualizaUsuario" method="post" action="accion_actualizar_usuario.php"  class="formulario" novalidate>
                         <div class="informacion">
                             <p>
                                 <i>Elige los campos a editar para el usuario</i>
@@ -56,25 +41,25 @@
                  <h1 class="titulo_formulario">Actualiza</h1>
                     
                     <label for="cif" class="label-css">CIF: </label>
-                    <input id="cif" name="CIF" class="input-css" type="string" size="40" value="<?php echo $usuario['CIF'];?>"  required/>
+                    <input id="cif" name="cif" class="input-css" type="string" size="40" value="<?php echo $usuario['CIF'];?>"  required/>
                      
                     <label for="nom" class="label-css">Nombre Empresa:</label>
-                    <input id="nombre" name="NOMBRE" class="input-css" type="text" value="<?php echo $usuario['NOMBRE']?>" required>
+                    <input id="nombre" name="nombre" class="input-css" type="text" value="<?php echo $usuario['NOMBRE']?>" required>
                     
                     <label for="direc" class="label-css">Direccion:</label>
-                    <input id="direccion" name="DIRECCION" class="input-css" type="text" value="<?php echo $usuario['DIRECCION'];?>"  required/>
+                    <input id="direccion" name="direccion" class="input-css" type="text" value="<?php echo $usuario['DIRECCION'];?>"  required/>
                     
                     <label for="correoElec" class="label-css">Correo Electronico: </label>
-                    <input id="correoElectronico" name="CORREOELECTRONICO"class="input-css" type="text" size="40" value="<?php echo $custrow['CORREOELECTRONICO'];?>" required>
+                    <input id="correoElectronico" name="correoElectronico"class="input-css" type="text" size="40" value="<?php echo $custrow['CORREOELECTRONICO'];?>" required>
                     
                     <label for="contraseña" class="label-css">Contraseña:</label>
-                    <input id="contraseña" name="CONTRASEÑA" class="input-css" type="password" minlength="8" placeholder="<?php echo $usuario['CONTRASEÑA'];?>" required/>
+                    <input id="contraseña" name="contraseña" class="input-css" type="password" minlength="8" placeholder="<?php echo $usuario['CONTRASEÑA'];?>" required/>
                     
                     <label for="confirmpassword" class="label-css">Confirmar Contraseña:</label>
                     <input id="confirmpassword" name="confirmpassword" class="input-css" type="password" minlength="8" placeholder="<?php echo $usuario['CONTRASEÑA'];?>" required/>
                     
                     <label for="telCliente" class="label-css">Telefono de Contacto: </label>
-                    <input id="telCliente" name="TELEFONO" class="input-css" type="tel" vaule="<?php echo $usuario['TELEFONO'];?>" minlength="9"  required/>
+                    <input id="telCliente" name="telCliente" class="input-css" type="tel" vaule="<?php echo $usuario['TELEFONO'];?>" minlength="9"  required/>
                     
                     <?php if (isset($usuario) and ($usuario["CIF"] == $cif)) { ?>
                     <td id="imagenes">

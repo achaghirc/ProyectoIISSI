@@ -10,10 +10,12 @@
 		$usuario["TELEFONO"] = $_REQUEST["TELEFONO"];
 
 		$_SESSION["usuario"] = $usuario;
+
+		var_dump($usuario);
 		
-		if (isset($_REQUEST["editar"])) Header("Location: adminPage.php?var2=" .$_REQUEST["CIF"]); 
-		else if (isset($_REQUEST["grabar"])) Header("Location: accion_actualizar_usuario.php?var2=" .$_REQUEST["CIF"]);
-		else /* if (isset($_REQUEST["borrar"])) */ Header("Location: accion_quitar_usuario.php?var2=" .$_REQUEST["CIF"]); 
+		// if (isset($_REQUEST["editar"])) Header("Location: adminPage.php?var2=" .$_REQUEST["CIF"]); 
+		// else if (isset($_REQUEST["grabar"])) Header("Location: validacion_actualiza_usuario.php?var2=" .$_REQUEST["CIF"]);
+		// else /* if (isset($_REQUEST["borrar"])) */ Header("Location: accion_quitar_usuario.php?var2=" .$_REQUEST["CIF"]); 
 
 	}
 	else {

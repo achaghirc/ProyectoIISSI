@@ -30,7 +30,6 @@ function validateName() {
     return error;
 }
 
-
 function validateTel() {
     var exprNumero = /^([0-9])+$/;
 
@@ -50,7 +49,6 @@ function validateTel() {
     return error;
 }
 
-
 function validateCif() {
     var cif = document.getElementById("CIF");
     var codigoCif = cif.value;
@@ -65,6 +63,7 @@ function validateCif() {
     cif.setCustomValidity(error);
     return error;
 }
+
 function validateEmail() {
     var exprEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
  
@@ -95,34 +94,6 @@ function validateDirection() {
     return error;
 }
 
-function fortalezaContraseña(password){
-    var clave = password;
-    var seguridad = 0;
-        if (clave.length!=0){
-           if (/[0-9]/.test(clave)){
-              seguridad += 20;
-           }
-           if (/[a-z]/.test(clave)){
-              seguridad += 10;
-           }
-           if(/[A_Z]/.test(clave)){
-            seguridad += 20;
-           }
-           if (clave.length >= 4 && clave.length <= 5){
-              seguridad += 10;
-           }else{
-              if (clave.length >= 6 && clave.length <= 8){
-                 seguridad += 20;
-              }else{
-                 if (clave.length > 8){
-                    seguridad += 40;
-                 }
-              }
-           }
-        }
-        return seguridad            
-     } 
-
 function validatePass(){
     var password = document.getElementById("CONTRASEÑA");
     var pwd = password.value;
@@ -147,23 +118,3 @@ function validatePass(){
     return error;
 }
 
-function colorContraseña(){
-    var password = document.getElementById("CONTRASEÑA");
-    var clave = password.value;
-    var fortaleza = fortalezaContraseña(clave);
-    
-    
-    if(fortaleza<30){
-        var type = "color1";
-   }else if(fortaleza >=30 && fortaleza<60){
-        var type = "color2";
-   }else if(fortaleza>=60 && fortaleza<=90)
-        var type = "color3";
-   else if(fortaleza > 90 ){
-        var type = "color3";
-   }else if(validatePass()!=""){
-    type = "color1";
-   }
-    password.className = type;
-    return type;
-}

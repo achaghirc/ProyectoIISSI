@@ -30,7 +30,7 @@ $productos = consultarTodosProductos($conexion);
         if(isset($_SESSION['login']) and isset($_SESSION['pass'])){
         $email = $_SESSION['login'];
         $pass = $_SESSION['pass'];
-        }else if(!isset($_SESSION['login']) and !isset($_SESSION['pass'])){
+        }else {
         $email="";
         $pass="";
         }

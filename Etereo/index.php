@@ -41,9 +41,6 @@
             <div><img id="producto" alt="" data-type="image" itemprop="image" src="./images/prodFotografica.jpg"></div>
             <div><img id="producto" alt="" data-type="image" itemprop="image" src="./images/diseñoWeb.jpg"></div>
           </div>
-          <div class="mas-productos">
-            <div><a id="enlace" href="shop.html">Más productos..</a></div>
-          </div>
         </div>
       </section>
       </header>

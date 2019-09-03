@@ -74,14 +74,21 @@ $productos = consultarTodosProductos($conexion);
                                 Modificar Producto
                             </button>
                             </form>    
-                            <?php }else { ?>
+                            <?php }else if($custrow['ADMINISTRADOR']=="NO") { ?>
                                 <h2><?php echo $fila["NOMBRE"]; ?></h2>
                                 <h3><?php echo $fila["DESCRIPCION"]; ?></h3>
                                 <p><?php echo $fila["PRECIO"].' €'; ?></p>
                                 <button class="aniadir" role="link" onclick="window.location='accion_carrito.php?action=aniadirCarrito&id=<?php echo $fila['IDENTIFICADOR']?>'">
                                 Añadir al carrito
                                 </button>
-                                <?php } ?>
+                                <?php } else {?>
+                                    <h2><?php echo $fila["NOMBRE"]; ?></h2>
+                                    <h3><?php echo $fila["DESCRIPCION"]; ?></h3>
+                                    <p><?php echo $fila["PRECIO"].' €'; ?></p>
+                                    <button class="aniadir" role="link" onclick="window.location='form_alta_usuario.php'">
+                                    Logueate
+                                    </button>
+                                <?php }?>
                         </div>
                     </div>
             <?php }

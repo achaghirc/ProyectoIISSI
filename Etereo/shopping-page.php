@@ -22,11 +22,19 @@ $productos = consultarTodosProductos($conexion);
 <body>
 <?php 
 
+        
         include_once("gestionUsuario.php");
         include_once("gestionBD.php");
         session_start();
+        
+        if(isset($_SESSION['login']) and isset($_SESSION['pass'])){
         $email = $_SESSION['login'];
         $pass = $_SESSION['pass'];
+        }else if(!isset($_SESSION['login']) and !isset($_SESSION['pass'])){
+        $email="";
+        $pass="";
+        }
+
         $esAdmin = consultarSiAdministrador($conexion,$email,$pass);
         $custrow= $esAdmin -> Fetch(PDO::FETCH_ASSOC);
         cerrarConexionBD($conexion);
@@ -38,7 +46,7 @@ $productos = consultarTodosProductos($conexion);
             }else {
                 include_once("cabecera2.php");
             }
-            
+           
 
 ?>
 <div class="container">

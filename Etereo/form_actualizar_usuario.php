@@ -36,9 +36,7 @@
             $oid_cliente = $_REQUEST['OID_CLI'];
         ?>
 </head>
-<body style="
-    padding: 0% 30%;
-">
+<body>
 <script>
 		// Inicialización de elementos y eventos cuando el documento se carga completamente
 		$(document).ready(function() {
@@ -87,7 +85,7 @@
         }
 		
     ?>
-   
+                <div style="padding: 0% 30%;">
                 <form id="actualizaUsuario" method="post" action="controlador_usuario.php"  class="formulario" >
                         <div class="informacion">
                             <p>
@@ -127,6 +125,7 @@
                             </button>
                     <?php } ?> 
                 </form>
+            </div>
     <main>
 
 </body>

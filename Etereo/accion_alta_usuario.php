@@ -46,7 +46,7 @@
         			<div class="mensaje-error">
 				<div style="margin-top: 15%;"><h1 id="mensaje-error" >El usuario <?php echo $formulario["cif"] ?> ya existe en la base de datos.</h1></div>
 				<div class="boton-error">
-            		<button id="boton-error" style="margin-top: 79%;"><a id="mensaje-boton-error" href="form_alta_usuario.php">prueba otros datos</a></button>
+            		<button id="boton-error" style="margin-top: 85%;"><a id="mensaje-boton-error" href="form_alta_usuario.php">Prueba otros datos</a></button>
         		</div>
 		<?php } ?>
 	</main>

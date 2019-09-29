@@ -56,7 +56,7 @@ $productos = consultarTodosProductos($conexion);
     <div id="productos" class="fila">
         <?php if(true){ 
             foreach($filas as $fila) {  ?>
-                <?php if($fila["NOMBRE"]=='Merchandising'){ ?>
+                <?php if($fila["NOMBRE"]=='Merchandasing'){ ?>
                     <div class="columna merch">
                 <?php }else if($fila["NOMBRE"]=='Fotografía'){?>
                     <div class="columna fotog">

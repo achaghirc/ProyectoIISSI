@@ -16,7 +16,7 @@
                 </div>
                 <div class="left-items">
                   <div class="navmenu_btn">
-                    <a class="navmenu_link">Etéreo</a>
+                    <a class="navmenu_link">ETEREO</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
                     <a class="navmenu_link" href="index.php" style="color: black; text-decoration:none;">Home</a>
@@ -56,13 +56,13 @@
                     <a class="navmenu_link">Etéreo</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
-                    <a class="navmenu_link" href="index.php" style="color: black; text-decoration:none;">Home</a>
+                    <a class="navmenu_link" href="index.php" style="color: black; text-decoration:none;">Inicio</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
-                    <a class="navmenu_link" href="shopping-page.php" style="color: black; text-decoration:none;">Shop</a>
+                    <a class="navmenu_link" href="shopping-page.php" style="color: black; text-decoration:none;">Tienda</a>
                   </div>
                   <div class="navmenu_btn" data-ix="show-sub-menu">
-                    <a class="navmenu_link" href="aboutUs.php" style="color: black; text-decoration:none;">About us</a>
+                    <a class="navmenu_link" href="aboutUs.php" style="color: black; text-decoration:none;">Acerca de nosotros</a>
                   </div>
                 </div>
                 <!-- Elementos a la derecha -->
